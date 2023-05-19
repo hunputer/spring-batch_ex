@@ -1,5 +1,7 @@
 package com.example.batch.jobs;
 
+import com.example.batch.mapper.BookMapper;
+import com.example.batch.service.TutorialService;
 import com.example.batch.tasklets.TutorialTasklet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -15,6 +17,7 @@ public class TutorialConfig {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+  //  private final TutorialService tutorialService;
 
     @Bean
     public Job tutorialJob(){

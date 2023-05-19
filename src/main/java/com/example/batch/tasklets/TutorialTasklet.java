@@ -13,31 +13,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Slf4j
 public class TutorialTasklet implements Tasklet {
 
-    private final BookMapper bookMapper;
-    private final TutorialService tutorialService;
-
-    @Autowired
-    public TutorialTasklet(BookMapper bookMapper, TutorialService tutorialService) {
-        this.bookMapper = bookMapper;
-        this.tutorialService = tutorialService;
-    }
+    //private final TutorialService tutorialService;
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception{
         log.debug("executed tastlet!!");
 
-        ArrayList<BookDto> list = bookMapper.findAll();
-
-        for(BookDto bookDto : list){
-            System.out.println(bookDto.getItemId());
-            System.out.println(bookDto.getContents());
-            System.out.println(bookDto.getName());
-            System.out.println(bookDto.getCustNo());
-        }
+//        List<BookDto> list = tutorialService.findAll();
+//
+//        for(BookDto bookDto : list){
+//            System.out.println(bookDto.getItemId());
+//            System.out.println(bookDto.getContents());
+//            System.out.println(bookDto.getName());
+//            System.out.println(bookDto.getCustNo());
+//        }
 
         return RepeatStatus.FINISHED;
     }
