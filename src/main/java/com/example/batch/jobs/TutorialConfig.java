@@ -1,6 +1,5 @@
 package com.example.batch.jobs;
 
-import com.example.batch.mapper.BookMapper;
 import com.example.batch.service.TutorialService;
 import com.example.batch.tasklets.TutorialTasklet;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +16,7 @@ public class TutorialConfig {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
-  //  private final TutorialService tutorialService;
+    private final TutorialService tutorialService;
 
     @Bean
     public Job tutorialJob(){
@@ -29,7 +28,7 @@ public class TutorialConfig {
     @Bean
     public Step tutorialStep(){
         return stepBuilderFactory.get("tutorialStep")
-                .tasklet(new TutorialTasklet())
+                .tasklet(new TutorialTasklet(tutorialService))
                 .build();
     }
 }
